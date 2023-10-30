@@ -1,0 +1,12 @@
+{% extends 'main_page.html' %}
+{% load static %}
+
+{% block content %}
+
+<h3>Успешно</h3>
+
+<p>Закладка создается, скоро она отобразится в общем списке</p>
+<a href="{% url 'main_parse' %}">Вернуться к форме создания закладки</a>
+<a href="{% url 'main_parse' %}">Смотреть список всех закладок</a>
+
+{% endblock content %}

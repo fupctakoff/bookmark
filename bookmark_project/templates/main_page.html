@@ -20,15 +20,24 @@
                     <a class="nav-link" href="{% url 'logout' %}">Выйти</a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'main_parse' %}">Создать закладку</a>
+                </li>
+
                 {% else %}
 
-                 <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="{% url 'register' %}">Регистрация</a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'login' %}">Войти</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'main_parse' %}">Создать закладку</a>
+                </li>
+
 
                 {% endif %}
             </ul>
@@ -39,5 +48,5 @@
 
 
 {% block content %}
-    <p>S0me logic</p>
+<p>S0me logic</p>
 {% endblock content %}

@@ -3,6 +3,29 @@
 
 {% block content %}
 
-pass
 
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col" class="col-md-3">url</th>
+        <th scope="col" class="col-md-2">title</th>
+        <th scope="col" class="col-md-2">description</th>
+        <th scope="col" class="col-md-1">favicon</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for bookmark in list_of_bookmarks %}
+    <tr>
+        {% for key, value in bookmark.items %}
+            {% if key == 'favicon' %}
+
+            <td><img src="{{ value }}"></img></td>
+            {% else %}
+            <td class="col-md-3">{{ value }}</td>
+            {% endif %}
+        {% endfor %}
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
 {% endblock content %}

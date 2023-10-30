@@ -25,6 +25,13 @@ class RedisRepository:
         data = self.redis_client.set(key, value=mapping_values)
         return
 
-    def get_dict(self, key: str) -> dict:
+    def get_dict(self, key: str) -> dict | None:
         data = self.redis_client.get(key)
-        return pickle.loads(data)
+        if data is not None:
+            return pickle.loads(data)
+        return
+
+    def get_list_dict(self):
+        all_keys = self.redis_client.keys('*')
+        data = [self.get_dict(key) for key in all_keys]
+        return data

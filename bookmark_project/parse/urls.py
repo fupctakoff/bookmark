@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import get_url, successful_addition, get_list_bookmarks, ListBookmarks
+from .views import get_url, successful_addition, ListBookmarks
 
 urlpatterns = [
     path('', get_url, name='main_parse'),

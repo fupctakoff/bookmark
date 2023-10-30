@@ -2,20 +2,18 @@ import requests
 from bs4 import BeautifulSoup
 from .schemas_parsers import OGParser, SOParser, NoSchemaParser
 
-# постоянная переменная для запроса в requests, можно добавить n 'user-agent'
-# и делать рандомную выборку из них для уменьшения вероятности блокировки
-
+# Постоянная переменная для запроса в requests.
 HEADER = {
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36'}
 
 
-class ParseResult:
+class ParseResult():
     title = None
     description = None
     favicon = None
     _soup = None
 
-    def __init__(self, url):
+    def __init__(self, url: str) -> None:
         self.url = url
 
     def _get_bs4_from_html(self, url) -> None:
@@ -66,7 +64,3 @@ class ParseResult:
         """Возвращает ранее спаршенные данные"""
         self._worker()
         return {'title': self.title, 'description': self.description, 'favicon': self.favicon}
-
-# url = 'some url'
-# instance = ParseResult(url)
-# print(instance.get_tags())

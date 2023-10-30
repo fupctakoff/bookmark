@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 
 
+### Представленных классов достаточно для парсинга Open Graph, Shema org, JSON-LD (отправленные сайты проходят) схем
 class OGParser:
     @classmethod
     def parse_title(cls, soup: BeautifulSoup) -> str | None:

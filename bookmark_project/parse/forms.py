@@ -8,8 +8,10 @@ class AddBlankForm(Form):
     def clean_url(self):
         url = self.cleaned_data['url']
 
-        if ValidatorUrl.request_validation(url) is None:
-            raise ValidationError(f"Не получилось получить информацию с сайта {url}, попробуйте указать другую ссылку")
-
+        # Проверка ссылки на наличие в БД
         if ValidatorUrl.db_validation(url) is None:
             raise ValidationError(f"Данный сайт уже есть в закладках")
+
+        # Проверка запроса по указанной ссылке
+        if ValidatorUrl.request_validation(url) is None:
+            raise ValidationError(f"Не получилось получить информацию с сайта {url}, попробуйте указать другую ссылку")

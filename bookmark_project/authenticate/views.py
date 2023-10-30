@@ -7,6 +7,7 @@ from django.contrib.auth.views import LoginView
 
 
 def closes(request):
+    """Заглушка"""
     return render(request, 'main_page.html')
 
 
